@@ -2,21 +2,23 @@ import math
 
 class Rectangle():
     # Create the constructor "__init__" method
-
-    # YOUR CODE HERE
-
+    def __init__(self, width, height):
+        self.width = width
+        self.height = height
 
 
     # Create the "__str__" method
-
+    def __str__():
+        return "A rectangle with width {width} and {height}"
     # YOUR CODE HERE
-
+    
 
 
     # Create the "area_calculator" method
 
     # YOUR CODE HERE
-
+    def Area_Calc(self):
+        return (self.X * self.y)
 
 
     # Create the "__eq__" method
