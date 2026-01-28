@@ -8,8 +8,8 @@ class Rectangle():
 
 
     # Create the "__str__" method
-    def __str__():
-        return "A rectangle with width {width} and {height}"
+    def __str__(self):
+        return "A rectangle with {self.width} and {self.height}"
     # YOUR CODE HERE
     
 
@@ -17,15 +17,18 @@ class Rectangle():
     # Create the "area_calculator" method
 
     # YOUR CODE HERE
-    def Area_Calc(self):
-        return (self.X * self.y)
+    def area_calculator(self):
+        return (self.width * self.height)
 
 
     # Create the "__eq__" method
     def __eq__(self, other):
-        self.width == other.width
-        self.height == other.height
-        
+        if self.width == other.width and self.height == other.height:
+            return True
+        else:
+            return False
+
+
     # Returns a boolean value
 
     # YOUR CODE HERE
