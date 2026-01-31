@@ -1,0 +1,33 @@
+HW3-W26
+Repository for Winter 2026 for Homework 3
+
+To download this repo to your local computer:
+1. Change to a directory where you want it to go
+   cd dir  # change directory to the target folder
+
+2. Clone the repo to your local computer
+   git clone <url>
+
+How to create a commit:
+1. Change to the repository directory
+   cd dir
+
+2. See status
+   git status  # shows changed and staged files
+
+3. Stage files
+   git add <file>  # add a file to the staging area
+
+4. Create a commit
+   git commit -m "message"  # creates a commit from staged files
+
+How to push changes to GitHub:
+   git push
+
+Notes:
+- Use `git add -A` to stage all changes (new, modified, deleted).
+- If you need to set your name/email for commits:
+  git config --global user.name "Your Name"
+  git config --global user.email "you@example.com"
+
+If you want this added to the repository README instead, tell me and I will update `README.md` instead.
