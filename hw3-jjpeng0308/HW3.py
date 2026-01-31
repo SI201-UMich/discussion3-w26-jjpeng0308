@@ -56,6 +56,21 @@ class CouponDispenser:
         pass
 
     def issue_coupon(self, name):
+        if not self.coupon_cards:
+            return "The box is empty."
+
+        # Check if name already exists
+        if name in self.customer_roster:
+            idx = self.customer_roster.index(name)
+            coupon_idx = self.issued_indices[idx]
+            coupon = self.coupon_cards[coupon_idx]
+            return f"That name already has a coupon: {coupon}"
+
+        # New name
+        rand_index = random.randrange(len(self.coupon_cards))
+        self.customer_roster.append(name)
+        self.issued_indices.append(rand_index)
+        return self.coupon_cards[rand_index]
         """
         Assign name with a random coupon. If name is already assigned a coupon, return it.
         If the list coupon_cards is empty, return:
@@ -73,6 +88,33 @@ class CouponDispenser:
         pass
 
     def distribute_session(self):
+        round_number = 1
+
+        while True:
+            user_input = input(
+                f"Round {round_number} - Enter a name (or a comma-separated list), or type 'show' or 'exit': "
+            )
+
+            if user_input == "exit":
+                print("Goodbye!")
+                break
+
+            elif user_input == "show":
+                for i in range(len(self.customer_roster)):
+                    name = self.customer_roster[i]
+                    coupon = self.coupon_cards[self.issued_indices[i]]
+                    print(f"{name}: {coupon}")
+
+            else:
+                pieces = user_input.split(",")
+                for piece in pieces:
+                    name = piece.strip()
+                    if name != "":
+                        result = self.issue_coupon(name)
+                        print(result)
+
+            round_number += 1
+
         """
         Run the "coupon dispenser" session.
 
