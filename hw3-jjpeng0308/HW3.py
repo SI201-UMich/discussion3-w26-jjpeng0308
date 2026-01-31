@@ -59,14 +59,14 @@ class CouponDispenser:
         if not self.coupon_cards:
             return "The box is empty."
 
-        # Check if name already exists
+        
         if name in self.customer_roster:
             idx = self.customer_roster.index(name)
             coupon_idx = self.issued_indices[idx]
             coupon = self.coupon_cards[coupon_idx]
             return f"That name already has a coupon: {coupon}"
 
-        # New name
+       
         rand_index = random.randrange(len(self.coupon_cards))
         self.customer_roster.append(name)
         self.issued_indices.append(rand_index)
@@ -207,7 +207,7 @@ def _capture_session_output(box, inputs):
     it = iter(inputs)
 
     def fake_input(prompt=""):
-        # Echo prompts so they appear in captured output
+       
         print(prompt, end="")
         try:
             return next(it)
