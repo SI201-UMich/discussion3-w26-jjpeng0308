@@ -133,6 +133,16 @@ class CouponDispenser:
         pass
 
     def tally_distribution(self):
+        if not self.issued_indices:
+            print("Empty")
+            return
+
+        for i in range(len(self.coupon_cards)):
+            count = 0
+            for idx in self.issued_indices:
+                if idx == i:
+                    count += 1
+            print(f"{self.coupon_cards[i]} distribution count: {count}.")
         """
         Extra credit:
         Print coupon distribution counts (NO sorting) using ONLY lists.
@@ -152,6 +162,16 @@ class CouponDispenser:
 
 
 def main():
+    coupon_cards = [
+        "10% off",
+        "Free small coffee",
+        "Buy 1 get 1 half off",
+        "Free extra espresso shot",
+    ]
+
+    box = CouponDispenser(coupon_cards)
+    box.distribute_session()
+    box.tally_distribution()
     """
     Driver function:
       - Define the coupon_cards list (example coupons below)
